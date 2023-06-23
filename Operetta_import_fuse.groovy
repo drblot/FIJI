@@ -27,7 +27,7 @@ allWells.each{ well ->
 	// Save positions file
 	opm.writeWellPositionsFile( allFields, new File( saveDir, opm.getFinalWellImageName( well ) + ".txt" ), downsample )
 
-	// Run Grid/Collection Stitching on the saved images. Here we just use it naively from the coordinates, just to show that it works
+	// Run Grid/Collection Stitching on the saved images
 	IJ.run("Grid/Collection stitching", 
 	"type=[Positions from file] order=[Defined by TileConfiguration] directory=["+saveDir.getAbsolutePath()+"] layout_file=["+opm.getFinalWellImageName( well ) + ".txt"+"] fusion_method=[Linear Blending] regression_threshold=0.30 max/avg_displacement_threshold=2.50 absolute_displacement_threshold=3.50 add_tiles_as_rois computation_parameters=[Save memory (but be slower)] image_output=[Fuse and display]");
 	
@@ -37,5 +37,5 @@ allWells.each{ well ->
 
 	IJ.saveAsTiff( imp, new File( saveDir, opm.getFinalWellImageName( well ) + "_fused" ).getAbsolutePath() );
 	imp.close();
-		IJ.log("Fused image Saved");
+	IJ.log("Fused image Saved");
 	}
