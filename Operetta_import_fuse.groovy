@@ -14,10 +14,10 @@ def opm = new OperettaManager.Builder()
 									.coordinatesCorrectionFactor( correctionFactor )
 									.build()
 
-def allWells = opm.getAvailableWells()                                                       .take(1)
+def allWells = opm.getAvailableWells()                                                    //   .take(1)
 
 allWells.each{ well ->
-	def allFields = opm.getAvailableFields( well )                                           .take(10)
+	def allFields = opm.getAvailableFields( well )                                     //     .take(10)
 	
 	allFields.each { field ->
 		def fieldImage = opm.getFieldImage( field, downsample )
