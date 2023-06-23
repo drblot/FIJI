@@ -1,10 +1,10 @@
 //operetta import and fuse
+//based on https://forum.image.sc/t/stitching-operetta-images-with-biop-script-1-pixel-black-border-around-each-tile/82684
 
 #@ File id (label="Location of Index.idx.xml File", style="directory")
 #@ File saveDir (label="Save Location", style="directory")
 #@ Integer downsample (label="Downsample Factor", value=10)
 #@ Double correctionFactor (label="Correction Factor", value=0.995)
-
 
 import ch.epfl.biop.operetta.OperettaManager
 import ij.IJ
@@ -14,10 +14,10 @@ def opm = new OperettaManager.Builder()
 									.coordinatesCorrectionFactor( correctionFactor )
 									.build()
 
-def allWells = opm.getAvailableWells()                                                         //  .take(1)
+def allWells = opm.getAvailableWells()                                                       .take(1)
 
 allWells.each{ well ->
-	def allFields = opm.getAvailableFields( well )                                         //  .take(10)
+	def allFields = opm.getAvailableFields( well )                                           .take(10)
 	
 	allFields.each { field ->
 		def fieldImage = opm.getFieldImage( field, downsample )
@@ -34,8 +34,10 @@ allWells.each{ well ->
 	// Save fused image
 	IJ.run("Remove Overlay");
 	imp = IJ.getImage();
-
+	
 	IJ.saveAsTiff( imp, new File( saveDir, opm.getFinalWellImageName( well ) + "_fused" ).getAbsolutePath() );
 	imp.close();
 	IJ.log("Fused image Saved");
 	}
+	
+	IJ.log("FIN"); 
