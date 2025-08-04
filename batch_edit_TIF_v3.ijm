@@ -29,7 +29,7 @@ setMinAndMax(400, 1200);
 run("Grays");
 
 Stack.setDisplayMode("composite");
-Stack.setActiveChannels("1101");										//turn off chan3
+Stack.setActiveChannels("1101");										            //turn off chan3
 
                                 saveAs("tiff",output+fname);
                         close();
@@ -38,6 +38,6 @@ Stack.setActiveChannels("1101");										//turn off chan3
 setBatchMode(true); 
 list = getFileList(input);
 for (i = 0; i < list.length; i++)	
-if(endsWith(list[i], suffix))  												 //process only .tif
+if(endsWith(list[i], suffix))  											          	 //process only .tif
 action(input, output, list[i]);
 setBatchMode(false);
