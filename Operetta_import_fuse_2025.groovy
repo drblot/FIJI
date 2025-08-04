@@ -1,9 +1,9 @@
 //operetta import and fuse JULY 2025
-//downsample factor set to 4
 //fuse set to true
 
 #@ File id (label="Location of Index.idx.xml File", style="directory")
 #@ File saveDir (label="Save Location", style="directory")
+#@ Integer downsample (label="Downsample Factor", value=10)
 
 
 import ch.epfl.biop.operetta.OperettaManager
@@ -13,8 +13,7 @@ def opm = new OperettaManager.Builder()
 									.setId( new File( id, "Index.idx.xml" ) )
 									.fuseFields(true)
 									.useStitcher(true)
-        					.setDownsample(4)
-									//.coordinatesCorrectionFactor( correctionFactor )
+        								.setDownsample(downsample)
 									.build()
 
 def allWells = opm.getWells( )
