@@ -20,8 +20,8 @@ macro "Toggle Channel 9 [9]" { toggle(8); }
 macro "chan1 [F1]" { Stack.setActiveChannels("10000"); }
 macro "chan2 [F2]" { Stack.setActiveChannels("01000"); }
 macro "chan3 [F3]" { Stack.setActiveChannels("00100"); }
-macro "chan4 [F4]" { Stack.setActiveChannels("00100"); }
-macro "chan5 [F5]" { Stack.setActiveChannels("00100"); }
+macro "chan4 [F4]" { Stack.setActiveChannels("00010"); }
+macro "chan5 [F5]" { Stack.setActiveChannels("00001"); }
 
 function toggle(idx) {
     // read the image dimensions: width, height, channels, slices, frames
