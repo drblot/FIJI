@@ -13,7 +13,6 @@ fname = getTitle();
 
 Stack.setChannel(1);												                   	// SELECT CHANNEL OF INTEREST
 run("Yellow");													                      	// RUN COMMAND
-//run("Enhance Contrast", "saturated=0.20");										// RUN COMMAND
 setMinAndMax(400, 5000);													              // RUN COMMAND
 
 Stack.setChannel(2);													
